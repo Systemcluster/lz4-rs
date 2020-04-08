@@ -106,7 +106,7 @@ impl<W: Write> Encoder<W> {
         self.w.write_all(&self.buffer)
     }
 
-    fn write_end(&mut self) -> Result<()> {
+    pub fn write_end(&mut self) -> Result<()> {
         unsafe {
             let len = check_error(LZ4F_compressEnd(
                 self.c.c,
