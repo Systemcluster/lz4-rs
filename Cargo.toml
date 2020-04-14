@@ -5,7 +5,7 @@ version = "1.24.0-dev"
 readme = "README.md"
 authors = [ "Jens Heyens <jens.heyens@ewetel.net>", "Artem V. Navrotskiy <bozaro@buzzsoft.ru>" ]
 description = "Rust LZ4 bindings library."
-repository = "https://github.com/bozaro/lz4-rs"
+repository = "https://github.com/Systemcluster/lz4-rs"
 documentation = "https://bozaro.github.io/lz4-rs/lz4/"
 
 [[bin]]
@@ -13,9 +13,15 @@ name = "lz4"
 test = false
 doc = false
 
+[workspace]
+members = [
+	".",
+	"lz4-sys",
+]
+
 [dependencies]
-libc = "0.2.68"
-lz4-sys = { path = "lz4-sys", version = "1.8.3" }
+libc = "^0.2"
+lz4-sys = { git = "https://github.com/Systemcluster/lz4-rs", version = "^1.9.0-dev" }
 
 [dev-dependencies]
-rand = "0.7.3"
+rand = "^0.7"
